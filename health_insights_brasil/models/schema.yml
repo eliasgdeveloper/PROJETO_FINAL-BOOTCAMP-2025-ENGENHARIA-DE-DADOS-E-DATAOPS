@@ -1,0 +1,126 @@
+version: 2
+
+sources:
+  - name: raw
+    description: "Dados brutos do SINASC 2023"
+    database: TRABALHO_FINAL
+    schema: PUBLIC
+    tables:
+      - name: SINASC_RAW
+        description: "Tabela com dados brutos de nascimentos do SINASC 2023"
+        columns:
+          - name: DTNASC
+            description: "Data de nascimento"
+          - name: PESO
+            description: "Peso ao nascer (gramas)"
+          - name: SEXO
+            description: "Sexo do bebê (M/F)"
+          - name: PARTO
+            description: "Tipo de parto (1=Vaginal, 2=Cesáreo)"
+          - name: IDADEMAE
+            description: "Idade da mãe"
+          - name: ESTCIVMAE
+            description: "Estado civil da mãe"
+          - name: ESCMAE
+            description: "Escolaridade da mãe"
+          - name: RACACORMAE
+            description: "Raça/cor da mãe"
+          - name: CODMUNNASC
+            description: "Código do município de nascimento"
+          - name: CODESTAB
+            description: "Código do estabelecimento"
+          - name: CODMUNRES
+            description: "Código do município de residência"
+          - name: CONSPRENAT
+            description: "Consultas pré-natal"
+          - name: MESPRENAT
+            description: "Mês de início do pré-natal"
+          - name: TPAPRESENT
+            description: "Tipo de apresentação"
+          - name: STTRABPART
+            description: "Situação no início do trabalho de parto"
+          - name: STCESPARTO
+            description: "Situação cesário"
+          - name: TPROBSON
+            description: "Grupo de Robson"
+
+models:
+  - name: stg_sinasc
+    description: "Dados de nascimentos do SINASC com limpeza e padronização"
+    columns:
+      - name: id_nascimento
+        description: "ID único do nascimento"
+        tests:
+          - unique
+          - not_null
+      
+      - name: data_nascimento
+        description: "Data de nascimento padronizada"
+        tests:
+          - not_null
+      
+      - name: peso
+        description: "Peso ao nascer em gramas"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 500
+              max_value: 6000
+      
+      - name: sexo
+        description: "Sexo do bebê padronizado"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Masculino', 'Feminino']
+      
+      - name: tipo_parto
+        description: "Tipo de parto padronizado"
+        tests:
+          - accepted_values:
+              values: ['Vaginal', 'Cesáreo']
+      
+      - name: idade_mae
+        description: "Idade da mãe"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 10
+              max_value: 60
+
+  - name: fct_nascimentos
+    description: "Tabela de fatos com métricas calculadas e categorizações"
+    columns:
+      - name: id_nascimento
+        description: "ID único do nascimento"
+        tests:
+          - unique
+          - not_null
+      
+      - name: categoria_peso
+        description: "Categoria de peso segundo OMS"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Baixo Peso', 'Peso Normal', 'Peso Elevado']
+      
+      - name: faixa_etaria_mae
+        description: "Faixa etária da mãe"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Adolescente', 'Jovem Adulta', 'Adulta', 'Adulta Tardia']
+      
+      - name: regiao
+        description: "Região do Brasil"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul']
+      
+      - name: indicador_risco
+        description: "Indicador de risco baseado em peso e idade"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Baixo Risco', 'Médio Risco', 'Alto Risco']

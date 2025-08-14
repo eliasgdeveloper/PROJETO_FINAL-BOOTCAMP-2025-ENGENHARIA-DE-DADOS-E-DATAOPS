@@ -1,0 +1,61 @@
+{
+    "path_count": 155,
+    "parsed_path_count": 155,
+    "static_analysis_path_count": 11,
+    "static_analysis_parsed_path_count": 11,
+    "is_partial_parse_enabled": true,
+    "is_static_analysis_enabled": true,
+    "read_files_elapsed": 0.0552906000011717,
+    "load_macros_elapsed": 0.5937170000033802,
+    "parse_project_elapsed": 0.45392639999772655,
+    "patch_sources_elapsed": 0.004826199998205993,
+    "process_manifest_elapsed": 0.019864699999743607,
+    "load_all_elapsed": 1.2811208999992232,
+    "projects": [
+        {
+            "project_name": "health_insights_brasil",
+            "elapsed": 0.44928609999624314,
+            "parsers": [
+                {
+                    "parser": "model",
+                    "elapsed": 0.14534239999920828,
+                    "parsed_path_count": 11
+                },
+                {
+                    "parser": "test",
+                    "elapsed": 0.07330560000264086,
+                    "parsed_path_count": 2
+                },
+                {
+                    "parser": "doc",
+                    "elapsed": 0.00015799999528098851,
+                    "parsed_path_count": 1
+                },
+                {
+                    "parser": "test",
+                    "elapsed": 0.22790689999965252,
+                    "parsed_path_count": 2
+                }
+            ],
+            "parsed_path_count": 16
+        },
+        {
+            "project_name": "dbt_snowflake",
+            "elapsed": 0.0021917999983998016,
+            "parsers": [],
+            "parsed_path_count": 0
+        },
+        {
+            "project_name": "dbt",
+            "elapsed": 0.0023207999984151684,
+            "parsers": [
+                {
+                    "parser": "doc",
+                    "elapsed": 0.00014660000306321308,
+                    "parsed_path_count": 1
+                }
+            ],
+            "parsed_path_count": 1
+        }
+    ]
+}

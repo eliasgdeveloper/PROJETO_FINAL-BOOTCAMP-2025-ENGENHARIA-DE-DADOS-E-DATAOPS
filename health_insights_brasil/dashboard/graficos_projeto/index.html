@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Health Insights Brasil - Gráficos do Projeto</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 40px; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .header { 
+            text-align: center; 
+            margin-bottom: 40px; 
+        }
+        .chart-container { 
+            margin: 30px 0; 
+            padding: 20px; 
+            background: rgba(255,255,255,0.1); 
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        .chart-title { 
+            font-size: 24px; 
+            margin-bottom: 15px; 
+            color: #ffd700;
+        }
+        .chart-description { 
+            margin-bottom: 20px; 
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        iframe { 
+            width: 100%; 
+            height: 650px; 
+            border: none; 
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏥 Health Insights Brasil</h1>
+        <h2>Gráficos e Visualizações do Projeto</h2>
+        <p><strong>Dados:</strong> SINASC 2023 | <strong>Registros:</strong> 2.537.575 nascimentos | <strong>Cobertura:</strong> 28 estados</p>
+    </div>
+
+    <div class="chart-container">
+        <div class="chart-title">📊 1. Top 15 Estados por Nascimentos</div>
+        <div class="chart-description">
+            Distribuição geográfica dos nascimentos. SP lidera com 436k nascimentos (17,2% do país), 
+            seguido por MG (233k) e BA (201k). O Sudeste concentra 47% dos nascimentos nacionais.
+        </div>
+        <iframe src="01_top_estados.html"></iframe>
+    </div>
+
+    <div class="chart-container">
+        <div class="chart-title">⚖️ 2. Distribuição por Categoria de Peso</div>
+        <div class="chart-description">
+            Indicador-chave da OMS para saúde perinatal. Brasil apresenta 9,5% de baixo peso 
+            (dentro do limite OMS de 10%), com 86,5% dos bebês nascendo com peso normal.
+        </div>
+        <iframe src="02_distribuicao_peso.html"></iframe>
+    </div>
+
+    <div class="chart-container">
+        <div class="chart-title">📈 3. Sazonalidade dos Nascimentos</div>
+        <div class="chart-description">
+            Padrão sazonal identificado: picos em março (225k) e setembro (221k), 
+            sugerindo concepções em junho/dezembro. Variação de até 12% entre meses.
+        </div>
+        <iframe src="03_sazonalidade.html"></iframe>
+    </div>
+
+    <div class="chart-container">
+        <div class="chart-title">👩‍👧‍👦 4. Perfil Etário das Mães</div>
+        <div class="chart-description">
+            Mães de 26-35 anos representam 48,7% dos nascimentos com menor taxa de baixo peso (8,1%). 
+            Adolescentes (<18 anos) apresentam maior risco com 15,3% de baixo peso.
+        </div>
+        <iframe src="04_perfil_demografico.html"></iframe>
+    </div>
+
+    <div class="chart-container">
+        <div class="chart-title">🚨 5. Mapa de Risco - Taxa de Baixo Peso por Estado</div>
+        <div class="chart-description">
+            Sistema de alertas para gestores de saúde pública. Estados com taxa >10% (limite OMS) 
+            requerem atenção especial. Classificação automática em Alto/Médio/Baixo risco.
+        </div>
+        <iframe src="05_mapa_risco.html"></iframe>
+    </div>
+
+    <div class="chart-container">
+        <div class="chart-title">📊 6. Dashboard Executivo - KPIs Principais</div>
+        <div class="chart-description">
+            Métricas executivas: 2,5M+ nascimentos processados, taxa nacional de baixo peso de 9,5% 
+            (dentro do padrão OMS), peso médio de 3.151g e cobertura de 28 estados.
+        </div>
+        <iframe src="06_dashboard_executivo.html"></iframe>
+    </div>
+
+    <div class="chart-container">
+        <div class="chart-title">🌎 7. Análise Regional do Brasil</div>
+        <div class="chart-description">
+            Comparação entre as 5 regiões brasileiras. Sudeste lidera em volume (47% dos nascimentos), 
+            Norte apresenta maior taxa de baixo peso, Sul tem melhores indicadores de saúde.
+        </div>
+        <iframe src="07_analise_regional.html"></iframe>
+    </div>
+
+    <div style="text-align: center; margin-top: 50px; padding: 30px; background: rgba(255,255,255,0.1); border-radius: 15px;">
+        <h3>🏆 Health Insights Brasil</h3>
+        <p><strong>Projeto Completo de Engenharia de Dados</strong></p>
+        <p>Snowflake + dbt Cloud + Streamlit + Python</p>
+        <p><em>Transformando dados em insights para a saúde pública brasileira</em> 🇧🇷</p>
+        <p><strong>Desenvolvido por: ELIAS</strong></p>
+    </div>
+</body>
+</html>

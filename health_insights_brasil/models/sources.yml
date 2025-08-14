@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: raw_data
+    description: "Dados brutos do SINASC 2023"
+    tables:
+      - name: SINASC_RAW
+        description: "Tabela raw com dados de nascimentos do SINASC 2023"
+        columns:
+          - name: data_nascimento
+            description: "Data de nascimento"
+          - name: codmunres
+            description: "Código do município de residência"
+          - name: munres
+            description: "Município de residência"
+          - name: uf
+            description: "UF de residência"
+          - name: idade_mae
+            description: "Idade da mãe"
+          - name: escmae
+            description: "Escolaridade da mãe"
+          - name: peso
+            description: "Peso ao nascer em gramas"
+          - name: apgar5
+            description: "APGAR no 5º minuto"
+          - name: gestacao
+            description: "Semanas de gestação"
+          - name: parto
+            description: "Tipo de parto"

@@ -1,0 +1,51 @@
+name: 'health_insights_brasil'
+version: '1.0.0'
+config-version: 2
+
+# Configurações do projeto
+profile: 'health_insights_brasil'
+
+model-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+seed-paths: ["data"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Configurações dos modelos
+models:
+  health_insights_brasil:
+    # Staging - Views para limpeza inicial
+    staging:
+      +materialized: view
+    
+    # Marts - Tabelas para consumo
+    marts:
+      +materialized: table
+
+# Configurações de testes
+tests:
+  +severity: error
+
+# Variáveis do projeto
+vars:
+  # Configurações de data
+  start_date: '2023-01-01'
+  end_date: '2023-12-31'
+  
+  # Configurações de qualidade
+  min_peso: 500
+  max_peso: 6000
+  min_idade_mae: 10
+  max_idade_mae: 60
+
+# Configurações de seeds
+seeds:
+  health_insights_brasil:
+    +enabled: true
+    +quote_columns: false

@@ -1,0 +1,3 @@
+*.csv
+dashboard/.streamlit/secrets.toml
+health_insights_brasil/dashboard/.streamlit/secrets.toml
